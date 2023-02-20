@@ -1,5 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ListItem callback is called 1`] = `
+<input
+  data-testid="test-list-item-1"
+  id="list-item-1"
+  type="checkbox"
+/>
+`;
+
+exports[`ListItem callback is not called when not checkable 1`] = `
+<li
+  class="list-item"
+  data-testid="test-list-item-1-container"
+>
+  <label
+    for="list-item-1"
+  >
+    Lorem ipsum dolor sit amet consectetur
+  </label>
+</li>
+`;
+
 exports[`ListItem matches saved snapshot 1`] = `
 Object {
   "asFragment": [Function],

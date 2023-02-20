@@ -46,13 +46,42 @@ describe('ListItem', () => {
         expect(node.children).toHaveLength(1);
     });
     
-    //TODO: implement this
-    it('callback is called', () => {});
+    // TODO: implement this
+    it('callback is called', () => {
+        const mockCallback = jest.fn();
+        const { getByTestId } = render(
+            <ListItem
+                id='list-item-1'
+                checkable={true}
+                onCheck={mockCallback}
+                item='Lorem ipsum dolor sit amet consectetur'
+            />
+        );
 
-    //TODO: implement this
-    it('callback is not called when not checkable', () => {});
+        getByTestId('test-list-item-1').click();
+        expect(mockCallback).toHaveBeenCalled();
+        expect(getByTestId('test-list-item-1')).toMatchSnapshot();
+    });
 
-    //TODO: implement this
+    // TODO: implement this
+    it('callback is not called when not checkable', () => {
+        const mockCallback = jest.fn();
+        const { getByTestId } = render(
+            <ListItem
+                id='list-item-1'
+                checkable={false}
+                onCheck={mockCallback}
+                item='Lorem ipsum dolor sit amet consectetur'
+            />
+        );
+    
+        getByTestId('test-list-item-1-container').click();
+        expect(mockCallback).not.toHaveBeenCalled();
+        expect(getByTestId('test-list-item-1-container')).toMatchSnapshot();
+    });
+    
+    // ...
+    
     it('matches saved snapshot', () => {
         const tree = render(
             <ListItem
@@ -65,3 +94,4 @@ describe('ListItem', () => {
         expect(tree).toMatchSnapshot();
     });
 });
+    
